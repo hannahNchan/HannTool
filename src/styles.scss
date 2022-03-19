@@ -1,0 +1,22 @@
+
+.app {
+  display: grid;
+  grid-template-columns: 85% 1fr;
+  grid-template-rows: 50px 70% 100px;
+  grid-template-areas: "h h"
+                       "dA dI"
+                       "f f";
+  
+  &__drag-items {
+    grid-area: dI;
+  }
+  &__on-dragged {
+    border: 1px solid #f29e9e;
+    background-color: #f7dddd;
+    &:active {
+      cursor: cell;
+    }
+  }
+}
+
+

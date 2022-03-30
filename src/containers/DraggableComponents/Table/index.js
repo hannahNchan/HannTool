@@ -1,21 +1,30 @@
 import * as React from 'react';
 import {DataGrid} from '@mui/x-data-grid';
-import {useDemoData} from '@mui/x-data-grid-generator';
+import PropTypes from 'prop-types';
 
-export default function DataGridDemo() {
-  const {data} = useDemoData({
-    dataSet: 'Commodity',
-    rowLength: 50,
-    maxColumns: 10,
-  });
-
+const DataGridDemo = ({ styles, rows, columns, data }) => {
   return (
-    <div style={{
-      height: 400,
-      width: '100%',
-    }}
-    >
-      <DataGrid {...data} />
+    <div style={styles}>
+      <DataGrid {...data} rows={rows} columns={columns} />
     </div>
   );
 }
+
+DataGridDemo.defaultProps = {
+  rows: [],
+  columns: [],
+  data: {},
+  styles: {
+    height: 400,
+    width: '100%',
+  }
+}
+
+DataGridDemo.propTypes = {
+  rows: PropTypes.array,
+  columns: PropTypes.array,
+  data: PropTypes.object,
+  styles: PropTypes.object
+}
+
+export default DataGridDemo;

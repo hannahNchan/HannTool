@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import PropTypes from 'prop-types';
 import {Input, Select, Button} from 'semantic-ui-react';
 
 import {apiGet} from '../../api';
+import TableContext from '../../context/Table/TableContext';
 
 import CodeArea from '../../components/CodeArea';
 import { METHODS } from '../../constants';
@@ -11,14 +12,14 @@ import './styles.scss';
 
 const RestQuery = () => {
   const [url, setUrl] = useState('');
+  const { getTableData } = useContext(TableContext);
 
   function handleChange(event) {
     setUrl(event.target.value);
   }
 
-  async function handleClick() {
-    const response = await apiGet(url);
-    console.log(response);
+  function handleClick() {
+    getTableData(url);
   }
 
   return (

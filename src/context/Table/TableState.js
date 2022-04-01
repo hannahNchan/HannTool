@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { apiGet } from '../../api';
 import {GET_DATA_TABLE} from '../types';
+import TableReducer from './TableReducer';
 
 import TableContext from './TableContext';
 
@@ -11,7 +12,7 @@ const TableState = ({ children }) => {
     dataTable: {}
   };
 
-  const [state, dispatch] = useReducer(useReducer, initialState);
+  const [state, dispatch] = useReducer(TableReducer, initialState);
 
   async function getTableData(url) {
     const response = await apiGet(url);

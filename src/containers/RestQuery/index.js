@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {Input, Select, Button} from 'semantic-ui-react';
 
 import {apiGet} from '../../api';
+import NestedList from '../../components/List';
 import TableContext from '../../context/Table/TableContext';
 
 import CodeArea from '../../components/CodeArea';
@@ -12,7 +13,7 @@ import './styles.scss';
 
 const RestQuery = () => {
   const [url, setUrl] = useState('');
-  const { getTableData } = useContext(TableContext);
+  const { getTableData, dataTable } = useContext(TableContext);
 
   function handleChange(event) {
     setUrl(event.target.value);
@@ -39,6 +40,9 @@ const RestQuery = () => {
           </Input>
           </div>
         </div>
+      </div>
+      <div className="flex-items">
+        <NestedList items={dataTable} />
       </div>
     </div>
   )

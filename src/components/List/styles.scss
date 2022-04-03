@@ -1,0 +1,17 @@
+.nested-list {
+  & > .item {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+
+  &__item {
+    margin-left: 1rem;
+  }
+
+  &__itemType {
+    margin-left: 1rem;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 12px;
+  }
+}

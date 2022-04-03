@@ -1,5 +1,5 @@
 /* eslint-disable import/first */
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import ReactDOM from "react-dom";
 import PropTypes from 'prop-types';
 import _ from "lodash";
@@ -9,7 +9,7 @@ const ResponsiveReactGridLayout = WidthProvider(Responsive);
 import DataGridDemo from '../DraggableComponents/Table';
 import MultipleSelect from '../DraggableComponents/Select';
 import InputWithIcon from '../DraggableComponents/InputText';
-
+import TableContext from '../../context/Table/TableContext';
 import './styles.scss';
 
 const DragFromOutsideLayout = (props) => {
@@ -19,6 +19,8 @@ const DragFromOutsideLayout = (props) => {
   const [layouts, setLayouts] = useState({lg: []});
   const [itemAdded, setItemAdded] = useState(false);
   const [typeOfItem, setTypeOfItem] = useState('');
+  const { dataTable } = useContext(TableContext);
+  console.log(dataTable)
 
   useEffect(() => {
     setMounted(true);
@@ -146,7 +148,7 @@ const DragFromOutsideLayout = (props) => {
 
   return (
     <div>
-      <div>
+      {/* <div>
         Current Breakpoint: {currentBreakpoint} (
         {props.cols[currentBreakpoint]} columns)
       </div>
@@ -157,7 +159,7 @@ const DragFromOutsideLayout = (props) => {
       <button onClick={() => onNewLayout()}>Generate New Layout</button>
       <button onClick={() => onCompactTypeChange()}>
         Change Compaction Type
-      </button>
+      </button> */}
       <div className="items-container">
         <div
           className="droppable-element table-icon"

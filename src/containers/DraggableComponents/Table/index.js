@@ -1,8 +1,12 @@
-import * as React from 'react';
+import React, {useContext} from 'react';
 import {DataGrid} from '@mui/x-data-grid';
 import PropTypes from 'prop-types';
 
+import TableContext from '../../../context/Table/TableContext';
+
 const DataGridDemo = ({ styles, rows, columns, data }) => {
+  //const { dataTable } = useContext(TableContext);
+
   return (
     <div style={styles}>
       <DataGrid {...data} rows={rows} columns={columns} />
